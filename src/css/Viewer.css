@@ -1,0 +1,13 @@
+
+
+.can_btn {
+    margin-left: 20px;
+    position:absolute;
+    top: 70px;
+   
+    bottom:0px;
+}
+
+.can_btn>button{
+    margin-left: 10px;
+}

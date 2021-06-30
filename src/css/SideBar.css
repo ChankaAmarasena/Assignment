@@ -1,0 +1,233 @@
+
+.sideBar{
+   flex: 0.4;     
+    margin:0 10px;
+
+}
+.mapUploader{
+    
+    display:flex;
+    padding :30px 5px;
+    margin: 10px 2px;
+    margin-top: 20px;   
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid rgb(182, 176, 164);
+    border-radius: 15px;
+}
+.mapUploader>form{
+    display:flex;
+    align-items: center;
+    margin-right: 5px;
+}
+.mapUploader>p{
+    margin-left: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.mapUploader>form>input{
+
+    padding-left: 10px;
+    color: red;
+   font-weight: bold;
+}
+.mapUploader>form>input>file-upload-button{
+    background-color: red;
+    
+}
+
+
+
+
+
+.milestoneAdder{
+    display: flex;
+    flex-direction: column;
+    
+    border:2px solid wheat;
+    border-radius: 15px;
+    margin:10px 2px;
+    padding: 10px 1px;
+    
+}
+.head{
+    justify-content:flex-start;
+}
+.head>h4{
+    
+    color:white;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-top:5px
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.data{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+}
+
+.data>p{
+    color: white;
+    padding-right: 55px;
+    
+
+}
+.form>form{
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-end;
+}
+.form>form>button{
+    
+    margin: auto;
+    padding: 5px 10px;
+     cursor: pointer;
+    
+    
+}
+
+
+.submit_btn{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+   
+}
+
+.submit_btn>button{
+        width: 90px;
+}
+
+
+
+.pointcloudAdder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+        margin: 0px 10px;
+}
+
+.pointcloudAdder>h4{
+    color: white;
+    margin-right: 10px;
+}
+.pointcloudAdder>button{
+    width:90px;
+}
+
+
+
+
+.json{
+    display: flex;
+    justify-content: center;
+}
+
+.json>button{
+    width: 90px;
+    margin-left:10px
+}
+
+.list{
+    border: 2px solid wheat;
+    border-radius: 15px;
+    margin: 10px  2px;
+    padding:10px;
+    
+}
+
+.mlist{
+    margin-top:10px;
+    width:500px;
+    height: 350px;
+}
+.listTop{
+    display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: space-between;
+
+}
+.listTop>h4{
+    color:white;
+}
+
+.listBottom{
+    padding-top:10px;
+    flex-direction: row;
+    display: flex;
+    justify-content:flex-end
+        
+
+}
+.listBottom>button{
+    width: 90px;
+}
+.listBottom>a{
+    margin-left:5px ;
+}
+
+
+::-webkit-scrollbar{
+    width:5px;
+}
+::-webkit-scrollbar-track{
+    background: #800080;
+}
+::-webkit-scrollbar-thumb{
+    background: #4B0082;
+}
+
+
+@media (max-width:1400px) {
+    .milestoneAdder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:2px solid wheat;
+    border-radius: 15px;
+    margin:10px 2px;
+    padding: 10px 10px;
+    
+}
+.data{
+    display: flex;
+   
+    padding-bottom: 10px;
+}
+
+.data>p{
+    color: white;
+   
+    font-size: 14px;
+    
+    
+
+}
+
+.milestoneAdder>form>button{
+    
+    margin: 10px 50px;
+    padding: 5px 5px;
+    border-radius: 15px;
+   
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+.mlist{
+    margin-top:10px;
+    width:100%;
+    height: 150px;
+}
+}
+
+

@@ -1,0 +1,11 @@
+.content {
+  padding-top: 10px;
+  transform: translate3d(50%, 0, 0);
+  text-align: left;
+  background: #a200b1;
+  color: rgb(255, 255, 255);
+  padding: 10px 15px;
+  border-radius: 5px;
+  z-index: 0;
+  
+}
