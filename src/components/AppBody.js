@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import "../css/AppBody.css"
 import SideBar from "./SideBar"
-// import SidePannel from "./SidePannel"
 import Viewer from "./Viewer"
 
 function AppBody() {
