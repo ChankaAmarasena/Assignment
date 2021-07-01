@@ -21,25 +21,22 @@ function PointCloudAdder() {
     setOpen(false)
   }
 
-  const getData = () => {
-    fetch(pjson, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (myJson) {
-        setPoints(myJson)
-      })
-  }
   useEffect(() => {
     if (pjson) {
-      return getData()
+      fetch(pjson, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (myJson) {
+          setPoints(myJson)
+        })
     }
-  }, [pjson])
+  }, [pjson, setPoints])
 
   const fileInput = useRef(null)
 

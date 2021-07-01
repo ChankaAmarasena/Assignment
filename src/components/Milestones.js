@@ -38,7 +38,7 @@ const Milestones = (props) => {
         milestones.findIndex((item) => item.id === activeId)
       )
     }
-  }, [activeId])
+  }, [activeId, milestones])
 
   const Row = ({ index, style, key }) => (
     <div style={style} key={key}>
