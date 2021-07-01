@@ -19,21 +19,20 @@ function SideBar({ setimageUrl, imageUrl }) {
   const [open, setOpen] = useState(false)
   const { setmilestones } = useContext(MilestoneContext)
 
-  console.log(open)
-  const handleClickOpen = () => {
+  const openDialogBox = () => {
     setOpen(true)
   }
 
-  const handleClose = () => {
+  const closeDialogBox = () => {
     setOpen(false)
   }
 
-  const onButtonClick2 = () => {
+  const clearList = () => {
     setOpen(false)
     setmilestones([])
   }
 
-  const onButtonClick = (e) => {
+  const openFile = (e) => {
     e.preventDefault()
     mapImage.current.click()
   }
@@ -61,7 +60,7 @@ function SideBar({ setimageUrl, imageUrl }) {
   }
 
   return (
-    <div Class="sideBar">
+    <div class="sideBar">
       <div class="mapUploader">
         <p>Map image</p>
         <form>
@@ -79,7 +78,7 @@ function SideBar({ setimageUrl, imageUrl }) {
                   variant="outlined"
                   color="primary"
                   component="span"
-                  onClick={onButtonClick}
+                  onClick={openFile}
                 >
                   Upload
                 </Button>
@@ -118,7 +117,7 @@ function SideBar({ setimageUrl, imageUrl }) {
           <Milestones />
         </div>
         <div class="listBottom">
-          <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+          <Button variant="outlined" color="primary" onClick={openDialogBox}>
             Clear
           </Button>
 
@@ -137,7 +136,7 @@ function SideBar({ setimageUrl, imageUrl }) {
 
       <Dialog
         open={open}
-        onClose={handleClose}
+        onClose={closeDialogBox}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -148,16 +147,16 @@ function SideBar({ setimageUrl, imageUrl }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
+          <Button onClick={closeDialogBox} color="primary">
+            Cancel
           </Button>
           <Button
-            onClick={onButtonClick2}
+            onClick={clearList}
             variant="outlined"
             color="secondary"
             autoFocus
           >
-            Agree
+            Ok
           </Button>
         </DialogActions>
       </Dialog>

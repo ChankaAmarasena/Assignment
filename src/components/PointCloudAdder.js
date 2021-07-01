@@ -13,11 +13,11 @@ function PointCloudAdder() {
   const [isUploading, setIsUploading] = useState(false)
   const [open, setOpen] = useState(false)
 
-  const handleClickOpen = () => {
+  const openDialogBox = () => {
     setOpen(true)
   }
 
-  const handleClose = () => {
+  const closeDialogBox = () => {
     setOpen(false)
   }
 
@@ -43,12 +43,12 @@ function PointCloudAdder() {
 
   const fileInput = useRef(null)
 
-  const onButtonClick = (e) => {
+  const openFile = (e) => {
     fileInput.current.click()
     setOpen(false)
   }
 
-  const onButtonClick2 = (e) => {
+  const clearPointCloud = (e) => {
     setPjson(null)
     setPoints([])
   }
@@ -89,7 +89,7 @@ function PointCloudAdder() {
               type="input"
               variant="outlined"
               color="primary"
-              onClick={handleClickOpen}
+              onClick={openDialogBox}
             >
               Insert
             </Button>
@@ -105,14 +105,14 @@ function PointCloudAdder() {
           }}
           type="input"
           variant="outlined"
-          onClick={onButtonClick2}
+          onClick={clearPointCloud}
         >
           Clear
         </Button>
       )}
       <Dialog
         open={open}
-        onClose={handleClose}
+        onClose={closeDialogBox}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -121,16 +121,16 @@ function PointCloudAdder() {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            This means if you click <b>AGREE</b>, Pointclouds will be loaded
-            over map. To go back click <b>DISAGREE</b>
+            This means if you click <b>Ok</b>, Pointclouds will be loaded over
+            map. To go back click <b>Cancel</b>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
+          <Button onClick={closeDialogBox} color="primary">
+            Cancel
           </Button>
-          <Button onClick={onButtonClick} variant="outlined" color="secondary">
-            Agree
+          <Button onClick={openFile} variant="outlined" color="secondary">
+            Ok
           </Button>
         </DialogActions>
       </Dialog>

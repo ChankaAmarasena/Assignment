@@ -18,17 +18,16 @@ const Milestones = (props) => {
     activeMilestone,
     setPosition,
     setIsDefault,
-    isZooming,
     setIsZooming,
   } = useContext(MilestoneContext)
   const listRef = React.useRef()
   const [open, setOpen] = useState(false)
 
-  const handleClickOpen = () => {
+  const openDialogBox = () => {
     setOpen(true)
   }
 
-  const handleClose = () => {
+  const closeDialogBox = () => {
     setOpen(false)
     setIsZooming(false)
   }
@@ -70,13 +69,13 @@ const Milestones = (props) => {
           color="secondary"
           aria-label="upload picture"
           component="span"
-          onClick={handleClickOpen}
+          onClick={openDialogBox}
         >
           <DeleteIcon />
         </IconButton>
         <Dialog
           open={activeId === milestones[index].id && open ? true : false}
-          onClose={handleClose}
+          onClose={closeDialogBox}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
@@ -88,29 +87,28 @@ const Milestones = (props) => {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              This means if you click AGREE milestone name{" "}
-              {milestones[index].name} will be deleted
+              This means if you click Ok milestone name {milestones[index].name}{" "}
+              will be deleted
             </DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button
               onClick={() => {
-                console.log(isZooming)
-                handleClose()
+                closeDialogBox()
               }}
               color="primary"
             >
-              Disagree
+              Cancel
             </Button>
             <Button
               onClick={() => {
                 removeMilestone(milestones[index].id)
-                handleClose()
+                closeDialogBox()
               }}
               variant="outlined"
               color="secondary"
             >
-              Agree
+              Ok
             </Button>
           </DialogActions>
         </Dialog>

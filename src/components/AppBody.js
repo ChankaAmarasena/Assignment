@@ -14,7 +14,7 @@ function AppBody() {
   }, [imageUrl])
 
   return (
-    <div Class="appBody">
+    <div class="appBody">
       <div class="SidePannel">
         <SideBar setimageUrl={setimageUrl} imageUrl={imageUrl} />
       </div>

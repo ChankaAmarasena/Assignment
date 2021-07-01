@@ -25,7 +25,7 @@ function MilestoneAdder() {
     return <MuiAlert elevation={6} variant="filled" {...props} />
   }
 
-  const handleClose = (event, reason) => {
+  const closePopup = (event, reason) => {
     if (reason === "clickaway") {
       return
     }
@@ -82,9 +82,9 @@ function MilestoneAdder() {
         anchorOrigin={{ vertical: "top", horizontal: "left" }}
         open={open}
         autoHideDuration={6000}
-        onClose={handleClose}
+        onClose={closePopup}
       >
-        <Alert onClose={handleClose} severity="success">
+        <Alert onClose={closePopup} severity="success">
           Milestone Added Successfully
         </Alert>
       </Snackbar>

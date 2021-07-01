@@ -12,13 +12,13 @@ function MilestoneJsonImporter() {
   const [isUploading, setIsUpoading] = useState(false)
   const [mjson, setMjson] = useState(null)
   const [open, setOpen] = React.useState(false)
-  const [open2, setOpen2] = React.useState(false)
+  const [openPop, setOpenPop] = React.useState(false)
 
-  const handleClickOpen = () => {
+  const openDialogBox = () => {
     setOpen(true)
   }
 
-  const handleClose = () => {
+  const closeDialogBox = () => {
     setOpen(false)
   }
 
@@ -33,11 +33,10 @@ function MilestoneJsonImporter() {
         return response.json()
       })
       .then(function (myJson) {
-        console.log(myJson)
         setmilestones([...milestones, ...myJson])
         setMjson(null)
         setIsUpoading(false)
-        setOpen2(true)
+        setOpenPop(true)
       })
   }
   useEffect(() => {
@@ -47,14 +46,14 @@ function MilestoneJsonImporter() {
   }, [mjson])
 
   const fileInput = useRef(null)
-  const onButtonClick = (e) => {
+  const openFile = (e) => {
     setOpen(false)
     fileInput.current.click()
   }
 
   const jsonUploader = async (e) => {
     setIsUpoading(true)
-    setOpen2(false)
+    setOpenPop(false)
     const files = e.target.files
     const data = new FormData()
     data.append("file", files[0])
@@ -69,7 +68,7 @@ function MilestoneJsonImporter() {
     )
     const file = await res.json()
     setMjson(file.secure_url)
-    console.log(file.secure_url)
+
     e.target.value = ""
   }
 
@@ -77,12 +76,12 @@ function MilestoneJsonImporter() {
     return <MuiAlert elevation={6} variant="filled" {...props} />
   }
 
-  const handleClose2 = (event, reason) => {
+  const closePopUp = (event, reason) => {
     if (reason === "clickaway") {
       return
     }
 
-    setOpen2(false)
+    setOpenPop(false)
   }
 
   return (
@@ -98,7 +97,7 @@ function MilestoneJsonImporter() {
           type="input"
           variant="outlined"
           color="primary"
-          onClick={handleClickOpen}
+          onClick={openDialogBox}
         >
           IMPORT
         </Button>
@@ -108,7 +107,7 @@ function MilestoneJsonImporter() {
 
       <Dialog
         open={open}
-        onClose={handleClose}
+        onClose={closeDialogBox}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -119,26 +118,26 @@ function MilestoneJsonImporter() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
+          <Button onClick={closeDialogBox} color="primary">
+            Cancel
           </Button>
           <Button
-            onClick={onButtonClick}
+            onClick={openFile}
             variant="outlined"
             color="secondary"
             autoFocus
           >
-            Agree
+            Ok
           </Button>
         </DialogActions>
       </Dialog>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "left" }}
-        open={open2}
+        open={openPop}
         autoHideDuration={6000}
-        onClose={handleClose2}
+        onClose={closePopUp}
       >
-        <Alert onClose={handleClose2} severity="success">
+        <Alert onClose={closePopUp} severity="success">
           Milestone Added Successfully
         </Alert>
       </Snackbar>

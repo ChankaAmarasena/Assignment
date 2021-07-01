@@ -12,7 +12,6 @@ function PointModel({ data }) {
   useEffect(() => {
     const mesh = meshRef.current
     data.map((d) => {
-      console.log(d.ranges.length)
       let theta = d.angle_min
       d.ranges.map((c, index) => {
         theta += d.angle_increment

@@ -71,7 +71,6 @@ function Viewer({ url }) {
 
   const Milestones = () => {
     return milestones.map((milestone) => {
-      console.log("run")
       return (
         <MilestoneModel
           position={new Vector3(milestone.x, 0, milestone.y)}
@@ -111,7 +110,6 @@ function Viewer({ url }) {
         {url ? <MapImage url={url} /> : null}
 
         <Suspense fallback={null}>
-          {console.log("run2")}
           <MemodMilestones />
           <Environment preset="sunset" background />
         </Suspense>
