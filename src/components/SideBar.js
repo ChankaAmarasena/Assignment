@@ -17,7 +17,7 @@ function SideBar({ setimageUrl, imageUrl }) {
   const mapImage = useRef(null)
   const [isUploading, setIsUploading] = useState(false)
   const [open, setOpen] = useState(false)
-  const { setmilestones } = useContext(MilestoneContext)
+  const { setmilestones, milestones } = useContext(MilestoneContext)
 
   const openDialogBox = () => {
     setOpen(true)
@@ -125,7 +125,7 @@ function SideBar({ setimageUrl, imageUrl }) {
             variant="outlined"
             color="primary"
             href={`data:text/json;charset=utf-8,${encodeURIComponent(
-              sessionStorage.milestones
+              JSON.stringify(milestones)
             )}`}
             download="milestone.json"
           >
