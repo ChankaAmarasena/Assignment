@@ -22,25 +22,28 @@ function MilestoneJsonImporter() {
     setOpen(false)
   }
 
+  const getData = () => {
+    fetch(mjson, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (myJson) {
+        setmilestones([...milestones, ...myJson])
+        setMjson(null)
+        setIsUpoading(false)
+        setOpenPop(true)
+      })
+  }
   useEffect(() => {
     if (mjson) {
-      fetch(mjson, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      })
-        .then(function (response) {
-          return response.json()
-        })
-        .then(function (myJson) {
-          setmilestones([...milestones, ...myJson])
-          setMjson(null)
-          setIsUpoading(false)
-          setOpenPop(true)
-        })
+      getData()
     }
-  }, [mjson, milestones, setmilestones])
+  }, [mjson])
 
   const fileInput = useRef(null)
   const openFile = (e) => {
